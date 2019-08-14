@@ -5,14 +5,12 @@
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
-    font-family: sans-serif;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
 }
 body {
-    margin: 0;
-    background-color: orangered;
-    
+  margin: 0;
 }
 article,
 aside,
@@ -242,7 +240,6 @@ th {
   }
   .navbar {
     display: none;
-    
   }
   .btn > .caret,
   .dropup > .btn > .caret {
@@ -1589,7 +1586,6 @@ pre code {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-
 }
 @media (min-width: 768px) {
   .container {
@@ -4172,7 +4168,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   min-height: 50px;
   margin-bottom: 20px;
   border: 1px solid transparent;
- 
 }
 @media (min-width: 768px) {
   .navbar {
@@ -4182,8 +4177,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 @media (min-width: 768px) {
   .navbar-header {
     float: left;
-    
-   
   }
 }
 .navbar-collapse {
@@ -4199,20 +4192,18 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   overflow-y: auto;
 }
 @media (min-width: 768px) {
-    .navbar-collapse {
-        width: auto;
-        border-top: 0;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-        color: white;
-    }
-        .navbar-collapse.collapse {
-            display: block !important;
-            height: auto !important;
-            padding-bottom: 0;
-            overflow: visible !important;
-                       color: white;
-        }
+  .navbar-collapse {
+    width: auto;
+    border-top: 0;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  .navbar-collapse.collapse {
+    display: block !important;
+    height: auto !important;
+    padding-bottom: 0;
+    overflow: visible !important;
+  }
   .navbar-collapse.in {
     overflow-y: visible;
   }
@@ -4239,7 +4230,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .container-fluid > .navbar-collapse {
   margin-right: -15px;
   margin-left: -15px;
-  background-color:darkblue;
 }
 @media (min-width: 768px) {
   .container > .navbar-header,
@@ -4332,14 +4322,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-nav {
   margin: 7.5px -15px;
-  
 }
-    .navbar-nav > li > a {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        line-height: 20px;
-            }
-
+.navbar-nav > li > a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 20px;
+}
 @media (max-width: 767px) {
   .navbar-nav .open .dropdown-menu {
     position: static;
@@ -4601,12 +4589,11 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-  background-color:darkblue;
+  background-color: #222;
   border-color: #080808;
-  
 }
 .navbar-inverse .navbar-brand {
-  color: white;
+  color: #9d9d9d;
 }
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
@@ -4617,7 +4604,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #9d9d9d;
 }
 .navbar-inverse .navbar-nav > li > a {
-  color: white;
+  color: #9d9d9d;
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
@@ -4664,7 +4651,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
     background-color: #080808;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
-    color: white;
+    color: #9d9d9d;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
@@ -4685,13 +4672,13 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   }
 }
 .navbar-inverse .navbar-link {
-  color: white;
+  color: #9d9d9d;
 }
 .navbar-inverse .navbar-link:hover {
   color: #fff;
 }
 .navbar-inverse .btn-link {
-  color: white;
+  color: #9d9d9d;
 }
 .navbar-inverse .btn-link:hover,
 .navbar-inverse .btn-link:focus {
@@ -4969,11 +4956,11 @@ a.badge:focus {
   margin-left: 3px;
 }
 .jumbotron {
-  padding-top: 15px;
+  padding-top: 30px;
   padding-bottom: 30px;
   margin-bottom: 30px;
   color: inherit;
-
+  background-color: #eee;
 }
 .jumbotron h1,
 .jumbotron .h1 {
