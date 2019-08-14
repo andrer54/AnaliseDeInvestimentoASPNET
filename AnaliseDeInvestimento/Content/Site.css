@@ -11,6 +11,14 @@
     background-color: aliceblue;
 }
 
+.jumbotron {
+    padding-top: 15px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: inherit;
+    background-color: yellow;
+}
+
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -23,4 +31,13 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+.container > .navbar-header,
+.container-fluid > .navbar-header,
+.container > .navbar-collapse,
+.container-fluid > .navbar-collapse {
+    margin-right: -15px;
+    margin-left: -15px;
+    background-color: darkblue;
 }
