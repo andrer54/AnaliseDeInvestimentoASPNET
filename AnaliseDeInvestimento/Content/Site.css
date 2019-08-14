@@ -41,3 +41,8 @@ textarea {
     margin-left: -15px;
     background-color: darkblue;
 }
+
+.navbar-inverse {
+    background-color: darkblue;
+    border-color: #080808;
+}
