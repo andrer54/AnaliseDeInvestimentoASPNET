@@ -1,0 +1,155 @@
+﻿@{
+    /**/
+
+    ViewBag.Title = "Analise de investimento";
+
+
+    double InvIni = Request.Form["InvIni"].AsFloat(); //investimento inicial
+    double InvMes = Request.Form["InvMes"].AsFloat(); //investimento mensal
+    double JuroAnual = Request.Form["JurAno"].AsFloat(); // juro ao ano
+    double juro_mensal = Request.Form["JurMes"].AsFloat(); //juro ao mes
+    int tempo_de_investimento = Request.Form["TmpInv"].AsInt();
+
+    if (!IsPost)
+    {
+        InvIni = 0; //investimento inicial
+        InvMes = 100; //investimento mensal
+        JuroAnual = 6; // juro ao ano
+       // juro_mensal = 20; //juro ao mes
+        tempo_de_investimento = 20; //tempo de investimento
+    }
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analise de Investimentos</title>
+</head>
+<body>
+    <form method="post">
+        <fieldset>
+            <legend>Investimento na poupança</legend>
+
+            @* ------------- INVESTIMENTO INICIAL ------------- *@
+            <div>
+                <label for="InvIni">Investimento Inicial:</label>
+                <input type="number" name="InvIni" value="@InvIni" />
+            </div>
+
+
+            @* ------------- INVESTIMENTO MENSAL ------------- *@
+
+            <div>
+                <label for="InvMes">Investimento mensal:</label>
+                <input type="text" name="InvMes" value="@InvMes" />
+            </div>
+
+
+            @* ------------- JURO AO ANO ------------- *@
+            <div>
+                <label for="JurAno">Juro ao ano:</label>
+                <input type="text" name="JurAno" value="@JuroAnual" />
+            </div>
+
+
+            @* ------------- JURO EQUIVALENTE AO MES------------- *@
+            <div>
+                <label for="JurMes">Juro ao Mes(Equivalente):</label>
+                <input type="text" name="JurMes" value="@(juro_mensal = Convert.ToDouble(JuroAnual)/12)" disabled="disabled" />
+            </div>
+
+            @* ------------- TEMPO DO INVESTIMENTO ------------- *@
+            <div>
+                <label for="TmpInv">Tempo do Investimento(em anos):</label>
+                <input type="number" name="TmpInv" value="@tempo_de_investimento" />
+            </div>
+
+            @* ------------- BOTAO SUBMIT ------------- *@
+            <div>
+                <label>&nbsp;</label>
+                <input type="submit" value="Submit" class="submit" />
+            </div>
+
+
+        </fieldset>
+    </form>
+
+
+    <table class="table table-condensed table-striped table-hover table-responsive table-bordered">
+
+        <th>Anos</th>
+        <th>Meses</th>
+        <th>Cota linear</th>
+        <th>quantia no final do ano</th>
+        <th>Montante passivo</th>
+        <th>Renda passiva por mês</th>
+
+        @{
+
+            double acumulado = 0;
+            double conta_linear = 0;
+            double montante_passivo = 0;
+            double renda_passiva_por_mes = 0;
+            double taxa_juro_mes = 0;
+            double investimento_inicial = 0;
+
+
+            if (IsPost)
+            {
+
+
+                InvIni = Request.Form["InvIni"].AsFloat(); //investimento inicial
+                InvMes = Request.Form["InvMes"].AsFloat(); //investimento mensal
+                JuroAnual = Request.Form["JurAno"].AsFloat(); // juro ao ano
+                juro_mensal = JuroAnual / 12; //juro ao mes
+                tempo_de_investimento = Request.Form["TmpInv"].AsInt(); //tempo de investimento
+
+
+
+
+                taxa_juro_mes = juro_mensal / 100;
+                conta_linear += InvIni;
+                acumulado += InvIni;
+
+
+
+                for (int anos = 1; anos <= tempo_de_investimento; anos++)
+                {
+                    for (int meses = 1; meses <= 12; meses++)
+                    {
+                        conta_linear += InvMes;
+                        acumulado += InvMes + (acumulado * taxa_juro_mes);
+                    }
+
+                    renda_passiva_por_mes = acumulado * (taxa_juro_mes);
+                    montante_passivo = acumulado - conta_linear;
+
+                    <tr>
+                        <td>
+                            @anos
+                        </td>
+                        <td>
+                            @(anos * 12)
+                        </td>
+                        <td>
+                            @conta_linear.ToString("C2")
+                        </td>
+                        <td>
+                            @acumulado.ToString("C2")
+                        </td>
+                        <td>
+                            @montante_passivo.ToString("C2")
+                        </td>
+                        <td>
+                            @renda_passiva_por_mes.ToString("C2")
+                        </td>
+                    </tr>
+
+                }
+
+            }
+
+        }
+    </table>
+</body>
+</html>
